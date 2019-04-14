@@ -23,17 +23,17 @@ Script 1
 
 */
 
-// const ADMIN_PASSWORD = 'm4ng0h4ckz';
-// let message;
-// const passwordRequest = prompt ("Enter the password");
-// if (passwordRequest === null) {
-//   message = "Canceled by user";
-// } else if (passwordRequest === ADMIN_PASSWORD) { 
-//   message = "Welcome!";
-// } else {
-//   message = "Access denied, wrong password";
-// }
-// alert (message);
+const ADMIN_PASSWORD = 'm4ng0h4ckz';
+let message;
+const passwordRequest = prompt ("Enter the password");
+if (passwordRequest === null) {
+  message = "Canceled by user";
+} else if (passwordRequest === ADMIN_PASSWORD) { 
+  message = "Welcome!";
+} else {
+  message = "Access denied, wrong password";
+}
+alert (message);
 
 
 /*

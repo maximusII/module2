@@ -28,41 +28,39 @@ Script 3
 */
 
 let yourCountry = prompt ("What is your country?");
-let shippingCost; 
-let message;
+const shippingCostChina = 100;
+const shippingCostSouthAmerika = 250;
+const shippingCostAustralia = 170;
+const shippingCostIndia = 80;
+const shippingCostJamaika = 120;
 
 if (yourCountry === null) {
   console.log("Canceled by user");
 } else {
-  let yourCountryLowerCase = yourCountry.toLowerCase();
-  switch (yourCountryLowerCase) {
+  switch (yourCountry.toLowerCase()) {
     case 'china':
-      shippingCost = 100;
+      console.log (`Shipping to ${yourCountry} will cost ${shippingCostChina} credits`);
       break;
     
     case 'south amerika':
-      shippingCost = 250;
+      console.log (`Shipping to ${yourCountry} will cost ${shippingCostSouthAmerika} credits`);
       break;
   
     case 'australia':
-      shippingCost = 170;
+      console.log (`Shipping to ${yourCountry} will cost ${shippingCostAustralia} credits`);
       break;
   
     case 'india':
-      shippingCost = 80;
+      console.log (`Shipping to ${yourCountry} will cost ${shippingCostIndia} credits`);
       break;
   
     case 'jamaika':
-      shippingCost = 120;
+      console.log (`Shipping to ${yourCountry} will cost ${shippingCostJamaika} credits`);
       break;
 
     default:
       console.log("Shipping to your location is unavailable");
   }
-  if (shippingCost) {
-  message = `Shipping to ${yourCountry} will cost ${shippingCost} credits`;
-  console.log(message);
   }
-} 
 
   

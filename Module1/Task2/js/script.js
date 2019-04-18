@@ -28,20 +28,14 @@ let credits = 23580;
 const pricePerDroid = 3000;
 const droidQuantityToBuy = prompt ("How many droids you would like to buy?");
 let totalPrice;
-let userBalance;
 
 if (droidQuantityToBuy === null) {
   console.log("Canceled by user");
-} else if (Number(droidQuantityToBuy) % 1 !== 0) {
-  console.log("Enter the integer number, please");
-} else if (Number(droidQuantityToBuy)>0) {
+} else {
   totalPrice = droidQuantityToBuy*pricePerDroid;
   if (totalPrice>credits) {
     console.log("Not enough assets on account");
   } else {
-    userBalance = credits - totalPrice;
-    console.log(`You bought ${droidQuantityToBuy} droids, your balance is ${userBalance} credits`);
+    console.log(`You bought ${droidQuantityToBuy} droids, your balance is ${credits - totalPrice} credits`);
   }
-  } else {
-    console.log("Enter the integer number bigger than 0, please!");
-  }
+} 

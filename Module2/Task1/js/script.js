@@ -27,13 +27,13 @@ while (true) {
   input = prompt('Enter the number');
   if (input === null) {
     break;
-  } else if (isNaN(input)) {
+  } if (Number.isNaN(Number(input))) {
     alert ("It's not a number!");
   } else {
   numbers.push(input);
   }
 }
-if (numbers.length !== 0) {
+if (numbers.length) {
   for (let number of numbers) {
     total += Number(number);
   }

@@ -27,19 +27,18 @@ const passwords = ['qwerty', '111qwe', '123123', 'r4nd0mp4zzw0rd'];
 let attemptsLeft = 3;
 let input;
 
-while (attemptsLeft > 0) {
+while (attemptsLeft) {
   input = prompt ("Enter your password");
   if (passwords.includes(input)) {
     alert ("Welcome");
     break;
-  } else if (input === null) {
+  } if (input === null) {
     break;
+  } 
+  attemptsLeft -= 1;
+  if (!attemptsLeft) {
+    alert ("No more attempts, account is locked");
   } else {
-    attemptsLeft -= 1;
-    if (attemptsLeft === 0) {
-      alert ("No more attempts, account is locked");
-    } else {
-    alert (`Wrong password, you have ${attemptsLeft} attempts left`);
-    }
+  alert (`Wrong password, you have ${attemptsLeft} attempts left`);
   }
-} 
+}

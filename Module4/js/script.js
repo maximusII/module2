@@ -46,7 +46,7 @@ const notepad = {
   deleteNote(id) {
     const findNote = notepad.findNoteById(id);
     if (!findNote) return;
-    notepad.notes.splice((notepad.notes.indexOf(findNote)), 1);
+    notepad.notes.splice(notepad.notes.indexOf(findNote), 1);
     /*
      * Удаляет заметку по идентификатору из массива notes
      *
@@ -204,7 +204,7 @@ console.log(
 /*
  * Обновим контент заметки с id-3
  */
-notepad.updateNoteContent('id-5', {
+notepad.updateNoteContent('id-3', {
   title: 'Get comfy with React.js or Vue.js',
 });
 

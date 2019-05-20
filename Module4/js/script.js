@@ -44,11 +44,9 @@ const notepad = {
   },
 
   deleteNote(id) {
-    for (const el of notepad.notes) {
-      if (el.id === id) {
-        notepad.notes.splice((notepad.notes.indexOf(el)), 1);
-      } 
-    } 
+    const findNote = notepad.findNoteById(id);
+    if (!findNote) return;
+    notepad.notes.splice((notepad.notes.indexOf(findNote)), 1);
     /*
      * Удаляет заметку по идентификатору из массива notes
      *
@@ -58,12 +56,10 @@ const notepad = {
   },
 
   updateNoteContent(id, updatedContent) {
-    for (const el of notepad.notes) {
-      if (el.id === id) {
-        Object.assign(el, updatedContent);
-        return el;
-      } 
-    }
+    const findNote = notepad.findNoteById(id);
+    if (!findNote) return;
+    Object.assign(findNote, updatedContent);
+    return findNote;
      /*
      * Обновляет контент заметки
      * updatedContent - объект с полями вида {имя: значение, имя: значение}
@@ -75,12 +71,10 @@ const notepad = {
   },
    
   updateNotePriority(id, priority) {
-    for (const el of notepad.notes) {
-      if (el.id === id) {
-        el.priority = priority;
-        return el;
-      } 
-    }
+    const findNote = notepad.findNoteById(id);
+    if (!findNote) return;
+    findNote.priority = priority;
+    return findNote;
     /*
      * Обновляет приоритет заметки
      *
@@ -210,7 +204,7 @@ console.log(
 /*
  * Обновим контент заметки с id-3
  */
-notepad.updateNoteContent('id-3', {
+notepad.updateNoteContent('id-5', {
   title: 'Get comfy with React.js or Vue.js',
 });
 

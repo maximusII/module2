@@ -10,7 +10,7 @@ const notepad = {
   notes: [],
 
   getNotes() {
-    return notepad.notes;
+    return this.notes;
     /*
      * Принимает: ничего
      * Возвращает: все заметки, значение свойства notes
@@ -18,7 +18,7 @@ const notepad = {
   },
   
   findNoteById(id) {
-    for (const el of notepad.notes) {
+    for (const el of this.notes) {
       if (el.id === id) {
         return el;
       } 
@@ -33,7 +33,7 @@ const notepad = {
   },
 
   saveNote(note) {
-    notepad.notes.push(note);
+    this.notes.push(note);
     return note; 
     /*
      * Сохраняет заметку в массив notes
@@ -43,10 +43,10 @@ const notepad = {
      */
   },
 
-  deleteNote(id) {
-    const findNote = notepad.findNoteById(id);
+  deleteNote(id) {   
+    const findNote = this.findNoteById(id);
     if (!findNote) return;
-    notepad.notes.splice(notepad.notes.indexOf(findNote), 1);
+    this.notes.splice(this.notes.indexOf(findNote), 1);
     /*
      * Удаляет заметку по идентификатору из массива notes
      *
@@ -56,7 +56,7 @@ const notepad = {
   },
 
   updateNoteContent(id, updatedContent) {
-    const findNote = notepad.findNoteById(id);
+    const findNote = this.findNoteById(id);
     if (!findNote) return;
     Object.assign(findNote, updatedContent);
     return findNote;
@@ -71,7 +71,7 @@ const notepad = {
   },
    
   updateNotePriority(id, priority) {
-    const findNote = notepad.findNoteById(id);
+    const findNote = this.findNoteById(id);
     if (!findNote) return;
     findNote.priority = priority;
     return findNote;
@@ -85,8 +85,11 @@ const notepad = {
 
   filterNotesByQuery(query) {
     const newArr = [];
-    for (const el of notepad.notes) {
-      if (el.title.indexOf(query) >= 0 || el.body.indexOf(query) >= 0) {
+    for (const el of this.notes) {
+      const elTitleLower = el.title.toLowerCase();
+      const elBodyLower = el.body.toLowerCase();
+      const queryLower = query.toLowerCase();
+      if (elTitleLower.indexOf(queryLower) >= 0 || elBodyLower.indexOf(queryLower) >= 0) {
         newArr.push(el);
       } 
     };
@@ -102,7 +105,7 @@ const notepad = {
   
   filterNotesByPriority(priority) {
     const newArr = [];
-    for (const el of notepad.notes) {
+    for (const el of this.notes) {
       if (el.priority === priority) {
         newArr.push(el);
       } 
@@ -218,3 +221,8 @@ console.log(
  */
 notepad.deleteNote('id-2');
 console.log('Заметки после удаления с id -2: ', notepad.getNotes());
+
+
+//this
+//toLowerCase
+//guard clause - just check

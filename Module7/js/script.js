@@ -161,7 +161,7 @@ console.log("Task 8");
 
 const getUsersByFriend = (users, name) => {
   const userFriends = users
-    .filter(user => user.friends.find(friend => friend === name))
+    .filter(user => user.friends.includes(name))
     .map(user => user.name);
   return userFriends;
 };

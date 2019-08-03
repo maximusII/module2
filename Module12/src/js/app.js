@@ -34,7 +34,9 @@ const handleAddNewNote = event => {
   const inputs = form.querySelectorAll(".note-editor__input");
   const inputTitle = inputs[0];
   const inputBody = inputs[1];
+
   const title = inputTitle.value;
+  console.log(title);
   const body = inputBody.value;
   if (title.trim() === "" || body.trim() === "") {
     return notyf.error(NOTIFICATION_MESSAGES.EDITOR_FIELDS_EMPTY);
